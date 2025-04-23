@@ -83,14 +83,65 @@ Queue adalah struktur data akses sekuensial dengan prinsip:
 Artinya: Elemen yang pertama masuk, akan menjadi yang pertama keluar.  
 Elemen ditambahkan di belakang (tail) dan dikeluarkan dari depan (head).  
 
-### Implementasi
-- Inisialisasi Queue
-- Mengambil head
-- Memeriksa yg terbaik
-- Menghapus dari skyline jika ada kandidat baru yang lebih baik
-- Mengulangi proses hingga queue kosong
+### Logika Algoritma 
+1. Data dibaca dari file CSV dan dimasukkan ke vector<Baju> data.
+2. data disalin ke queue (vector<Baju> juga).
+3. Selama queue tidak kosong:
+- Ambil elemen paling depan (front() → FIFO).
+- Bandingkan dengan semua elemen skyline:
+- Jika dikalahkan→ abaikan.
+- Jika mengalahkan, tambahkan ke skyline, dan buang elemen skyline yang dikalahkan olehnya.
+
+### Analisis Kompleksitas
+- Ketika program membuka dan membaca file CSV (ifstream, getline, parsing stringstream), setiap baris dibaca sekali saja, dan hasilnya disimpan ke dalam vector<Baju> data. Kompleksitas: O(n)
+Alasan: karena ada n baris produk, dan setiap baris diproses satu kali.
+- Setiap kali loop dijalankan, program mengambil elemen pertama dari antrian dengan:
+```kandidat = queue.front();```
+Ini hanya membaca data pada indeks ke-0 dari vector.
+Kompleksitas: O(1)
+Alasan: karena akses elemen di indeks tertentu pada vector sangat cepat (constant time).
+- Setelah mengambil elemen, elemen tersebut dihapus dari queue dengan:
+```queue.erase(queue.begin());```
+Di sini vector akan menggeser seluruh elemen setelah indeks ke-0 satu posisi ke kiri, karena vector tidak mendukung pop_front() seperti deque.
+Kompleksitas: O(n)
+Alasan: karena tiap penghapusan memicu pergeseran semua elemen setelahnya.
+- Setiap kandidat dicek satu per satu dengan elemen di skyline, apakah ada produk lain yang lebih baik dari kandidat:
+```
+for (auto& s : skyline) {
+    if (Domination(s, kandidat)) {
+        ...
+    }
+}
+```
+Kompleksitas: O(n)
+Alasan: karena kita melakukan loop sebanyak (n) jumlah elemen dalam skyline
+- Jika kandidat tidak dikalahkan, maka kita membangun ulang skyline:
+Hanya mempertahankan produk yang tidak dikalahkan oleh kandidat.
+Kemudian menambahkan kandidat.
+```
+vector<Baju> baru;
+for (auto& s : skyline) {
+    if (!domination(kandidat, s)) {
+        baru.push_back(s);
+    }
+}
+baru.push_back(kandidat);
+skyline = baru;
+```
+Kompleksitas: O(n)
+Alasan: karena kita mengecek ulang semua elemen di skyline untuk menentukan siapa yang kalah.
+- Karena semua langkah di atas dilakukan untuk setiap elemen dalam queue (n data):  
+a. Loop utama dilakukan n kali.  
+b. Di dalamnya terdapat operasi erase(begin()) = O(n). 
+c. Ditambah dua loop terhadap skyline = maksimal O(n)
+Jadi total kompleksitas waktu keseluruhan:
+> O(n²)
 
 
 ![WhatsApp Image 2025-04-23 at 15 40 40_83999b26](https://github.com/user-attachments/assets/4129b247-686b-4a43-857f-0edbc9ebc6a5)
 ![WhatsApp Image 2025-04-23 at 15 40 40_2d7d9669](https://github.com/user-attachments/assets/b60b6ebf-3a51-45d6-a9de-37320e7348cf)
 ![WhatsApp Image 2025-04-23 at 15 40 41_494fe982](https://github.com/user-attachments/assets/8dca0219-117f-449c-af46-ac0c6910ff80)
+
+### Uji Coba Running
+Saat menjalankan proses running, didapatkan dari 1000 data csv. Dimana ada 9 data yang terbaik (berdasarkan harga dan ulasannya) yang masuk ke skyline.  
+Sementara waktu eksekusinya saya melakukan percobaan 3 kali, dan didapatkan 0.341ms, 0.293ms, dan 0.280ms. Jika dirata-rata maka waktu eksekusinya sekitar 0.304ms atau 0.000304 detik.
