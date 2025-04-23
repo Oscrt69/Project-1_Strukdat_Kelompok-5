@@ -45,7 +45,7 @@ void process(const string& filename) {
 
 int main() {
     auto start = chrono::high_resolution_clock::now();
-    process("ind_500_2_product.csv");
+    process("ind_1000_2_product.csv");
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
     cout << "Waktu eksekusi: " << duration.count() << " detik" << endl;
