@@ -38,19 +38,21 @@ berdasarkan gambar diatas telah dilakukan implementasi skyline query dengan cara
 
 Dokumentasi : 
 
-![image](https://github.com/user-attachments/assets/112332bb-a524-47ec-b622-396ec0924290)
+![WhatsApp Image 2025-04-23 at 15 42 53_c6606da2](https://github.com/user-attachments/assets/52d44631-655b-4c2a-bfd9-de608490653d)
+
 
 Dapat ditinjau pada dokumentasi tersebut bahwa efisiensi waktu menggunakan struktur data Stack memakan waktu sebesar :
 - Percobaan pertama = 0.002653 detik
-![image](https://github.com/user-attachments/assets/e7178c1a-3896-47b2-a821-e4e9b9b2fdff)
+![WhatsApp Image 2025-04-23 at 15 42 42_68043ef1](https://github.com/user-attachments/assets/34b1545c-7675-4f10-87d9-1c04ebbdedb0)
 
 - Percobaan kedua = 0.002005 detik
 
-![image](https://github.com/user-attachments/assets/48ba0f2a-1fc5-4807-80f9-99ddb7e1501b)
+![WhatsApp Image 2025-04-23 at 15 42 38_3b6fccb6](https://github.com/user-attachments/assets/9b29521f-fd08-4474-a71d-25c95a45c9c6)
 
 - Percobaan ketiga = 0.001452 detik
 
-![image](https://github.com/user-attachments/assets/c64ff9ab-a2d1-4ce4-b769-59715611417e)
+![WhatsApp Image 2025-04-23 at 15 42 48_d71c7cd6](https://github.com/user-attachments/assets/10ebde31-da52-48b1-8007-9b628e705425)
+
 
  Implementasi skyline querry dengan struktur data Stack memiliki kompleksitas O(n^2),  Operasi stack (push/pop) sendiri adalah O(1), tapi karena dilakukan dalam loop bersarang, totalnya O(n^2). Kesimpulannya stack cocok untuk analisis data file kecil, namun apabila ukuran data besar maka kurang direkomendasikan dikarenakan kompleksitas waktu dalam big O notation yang cukup besar
 
@@ -87,6 +89,6 @@ Elemen ditambahkan di belakang (tail) dan dikeluarkan dari depan (head).
 - Mengulangi proses hingga queue kosong
 
 
-![Image](https://github.com/user-attachments/assets/d7c0a3eb-50c4-49d7-9718-0d747c12a384)
-![Image](https://github.com/user-attachments/assets/cd2c6d75-7d27-4041-be0d-470f75328089)
-![Image](https://github.com/user-attachments/assets/a6a277eb-e658-43cd-88a6-86044a191f07)
+![WhatsApp Image 2025-04-23 at 15 40 40_83999b26](https://github.com/user-attachments/assets/4129b247-686b-4a43-857f-0edbc9ebc6a5)
+![WhatsApp Image 2025-04-23 at 15 40 40_2d7d9669](https://github.com/user-attachments/assets/b60b6ebf-3a51-45d6-a9de-37320e7348cf)
+![WhatsApp Image 2025-04-23 at 15 40 41_494fe982](https://github.com/user-attachments/assets/8dca0219-117f-449c-af46-ac0c6910ff80)
