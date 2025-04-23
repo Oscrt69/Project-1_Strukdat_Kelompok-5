@@ -70,13 +70,14 @@ Hash table adalah struktur data yang menyimpan data dalam pasangan `key-value`, 
 
 <br>Hash Table mrmiliki implementasi `unordered_map`. `unordered_map` adalah bagian dari Standard Template Library C++, dan dapat disimpan tanpa urutan tertentu. <br>
 
-<img src="https://github.com/user-attachments/assets/1e4719dd-8f61-4eaa-89fa-227e195dea72" width = "600"> <br>
-Berdasarkan gambar di atas, telah dilakukan sebanyak tiga kali uji coba pemrosesan data pada file .csv menggunakan metode Hash Table. Hasil waktu pemrosesan dari masing-masing uji coba adalah sebagai berikut: <br>
-Uji coba pertama: 0.00088687 detik <br>
-Uji coba kedua: 0.0015121 detik <br>
-Uji coba ketiga: 0.00112224 detik <br>
-Jika dirata-ratakan, waktu pemrosesan data tersebut adalah 0.00117374 detik.
-
+<img src ="https://github.com/user-attachments/assets/aadb1310-413b-41bc-95c6-2e818d1e1fa5" width = "600">
+ <br>
+Berdasarkan gambar di atas, telah dilakukan sebanyak tiga kali uji coba pemrosesan data pada file `.csv` menggunakan metode Hash Table. Hasil waktu pemrosesan dari masing-masing uji coba adalah sebagai berikut: <br>
+Uji coba pertama: 0.00058487 detik <br>
+Uji coba kedua: 0.000581505 detik <br>
+Uji coba ketiga: 0.000565571 detik <br>
+Jika dirata-ratakan, waktu pemrosesan data tersebut adalah 0.000577315 detik.
+(Uji coba dilakukan dengan jarak waktu yang berdekatan antara uji coba satu dengan yang lainnya)
 
 ## Array
 Pada Array Linear search dan traversal mudah dilakukan, namun butuh waktu lebih lama dalam pengecekan dominasi karena tidak ada efisiensi dalam pencarian.
@@ -177,7 +178,11 @@ percobaan kedua: 0.837
 
 percobaan ketiga:0.966
 
-rata2: 1.183
+rata-rata: 1.183
 
 pada gambar diatas telah dilakukan implementasi skyline query secara map, map ini sendiri memiliki kompleksitas O(n log n) untuk `insert` dan `lower_bound`, map cukup efisien untuk menstruktur data yang besar karena memiliki pencarian biner, juga karena map menyimpan data dalam bentuk terurut (berdasarkan harga), sehingga pemeriksaan dominasi lebih cepat, tetpi map memiliki keterbatasan seperti Jika ada banyak produk dengan harga sama, hanya yang dengan ulasan tertinggi yang disimpan.
+
+## Kesimpulan
+
+Berdasarkan percobaan ke-6 jenis sruktur data, struktur data yang paling optimal adalah 
 
