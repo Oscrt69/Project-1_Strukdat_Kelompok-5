@@ -168,7 +168,7 @@ Jadi total kompleksitas waktu keseluruhan:
 Saat menjalankan proses running, didapatkan dari 1000 data csv. Dimana ada 9 data yang terbaik (berdasarkan harga dan ulasannya) yang masuk ke skyline.  
 Sementara waktu eksekusinya saya melakukan percobaan 3 kali, dan didapatkan 0.341ms, 0.293ms, dan 0.280ms. Jika dirata-rata maka waktu eksekusinya sekitar 0.304ms atau 0.000304 detik.
 
-##Map
+## Map
 output:
 ![Screenshot 2025-04-23 201018](https://github.com/user-attachments/assets/e373a362-4402-4782-b2b9-c832ec284aa8)
 
