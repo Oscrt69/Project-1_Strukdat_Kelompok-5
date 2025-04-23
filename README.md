@@ -77,6 +77,7 @@ Berdasarkan 3 kali hasil uji performa pada struktur dat array terhadap 1000 bari
 - Operasi perbandingan lebih sederhana
 - Tidak ada alokasi memori dinamis atau kompleks
 - Overhead sistem termasuk minimal dalam dataset ini
+
 Kesimpulan:
 Array sudah cocok digunakan untuk penggunaan skyline pada dataset yang kecil hingga menengah. Namun untuk dataset besar array dirasa kurang efisien secara waktu eksekusinya.
 
