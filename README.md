@@ -184,5 +184,5 @@ pada gambar diatas telah dilakukan implementasi skyline query secara map, map in
 
 ## Kesimpulan
 
-Berdasarkan percobaan ke-6 jenis sruktur data, struktur data yang paling optimal adalah 
+Berdasarkan percobaan ke-6 jenis sruktur data, yang paling optimal adalah struktur data `Queue` dengan durasi rata-rata 0.000304 detik sedangkan yang paling memakan waktu paling lama adalah struktur data `Linked list` dengan waktu rata-rata 1.326 detik.
 
