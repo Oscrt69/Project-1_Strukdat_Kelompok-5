@@ -29,14 +29,17 @@ d. Screenshot output program
 
 
 ## Linked List
+output:
 ![Screenshot 2025-04-23 130136](https://github.com/user-attachments/assets/2d7d6bb7-33ba-477b-8e9d-50fb4403c5a2)
 percobaan pertama = 1.584 detik
 
 percobaan kedua = 1.509 detik
 
 percobaan ketiga = 0.885 detik
+
 rata2 = 1.326 detik
-berdasarkan gambar diatas telah dilakukan implementasi skyline query dengan cara linked list, implmentasi ini memiliki kompleksitas O(n²), linked list ini tidak terlalu efisien Karena Linked List tidak mendukung indexing cepat atau area pruning, sehingga harus membandingkan satu-satu (brute-force), juga Tidak efisien untuk dataset besar karena operasi penghapusan (remove_if) membutuhkan O(n).
+
+berdasarkan gambar diatas telah dilakukan implementasi skyline query dengan cara linked list, implmentasi ini memiliki kompleksitas O(n²), linked list ini tidak terlalu efisien untuk data yang besar Karena Linked List tidak mendukung indexing cepat atau area pruning, sehingga harus membandingkan satu-satu (brute-force), juga Tidak efisien untuk dataset besar karena operasi penghapusan (remove_if) membutuhkan O(n).
 
 ## Stack
 ### Penjelasan Stack secara singkat 
@@ -161,3 +164,18 @@ Jadi total kompleksitas waktu keseluruhan:
 ### Uji Coba Running
 Saat menjalankan proses running, didapatkan dari 1000 data csv. Dimana ada 9 data yang terbaik (berdasarkan harga dan ulasannya) yang masuk ke skyline.  
 Sementara waktu eksekusinya saya melakukan percobaan 3 kali, dan didapatkan 0.341ms, 0.293ms, dan 0.280ms. Jika dirata-rata maka waktu eksekusinya sekitar 0.304ms atau 0.000304 detik.
+
+##Map
+output:
+![Screenshot 2025-04-23 201018](https://github.com/user-attachments/assets/e373a362-4402-4782-b2b9-c832ec284aa8)
+
+percobaan pertama: 1.748
+
+percobaan kedua: 0.837
+
+percobaan ketiga:0.966
+
+rata2: 1.183
+
+pada gambar diatas telah dilakukan implementasi skyline query secara map, map ini sendiri memiliki kompleksitas O(n log n) untuk `insert` dan `lower_bound`, map cukup efisien untuk menstruktur data yang besar karena memiliki pencarian biner, juga karena map menyimpan data dalam bentuk terurut (berdasarkan harga), sehingga pemeriksaan dominasi lebih cepat, tetpi map memiliki keterbatasan seperti Jika ada banyak produk dengan harga sama, hanya yang dengan ulasan tertinggi yang disimpan.
+
