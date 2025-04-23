@@ -73,12 +73,15 @@ vector<Produk> skylineQueryDenganStack(const vector<Produk>& data) {
 int main() {
     string filename = "ind_1000_2_product.csv";
     vector<Produk> data = bacaCSV(filename);
+    
     auto start = chrono::high_resolution_clock::now();
     vector<Produk> hasil = skylineQueryDenganStack(data);
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
+    
     cout << "Waktu eksekusi skylineQueryDenganStack: " << duration.count() << " detik\n\n";
     cout << "Hasil Skyline (pakai stack):\n";
+    
     for (const auto& p : hasil) {
         cout << "- Harga: " << p.harga << ", Ulasan: " << p.ulasan << '\n';
     }
