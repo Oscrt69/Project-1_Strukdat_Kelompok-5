@@ -166,7 +166,11 @@ Jadi total kompleksitas waktu keseluruhan:
 
 ### Uji Coba Running
 Saat menjalankan proses running, didapatkan dari 1000 data csv. Dimana ada 9 data yang terbaik (berdasarkan harga dan ulasannya) yang masuk ke skyline.  
-Sementara waktu eksekusinya saya melakukan percobaan 3 kali, dan didapatkan 0.341ms, 0.293ms, dan 0.280ms. Jika dirata-rata maka waktu eksekusinya sekitar 0.304ms atau 0.000304 detik.
+Sementara waktu eksekusinya saya melakukan percobaan 3 kali, dan didapatkan 0.341ms, 0.293ms, dan 0.280ms. Jika dirata-rata maka waktu eksekusinya sekitar 0.304ms atau 0.000304 detik.   
+Queue cocok digunakan untuk Skyline Query karena:
+- Alurnya sequential (FIFO)
+- Sesuai dengan logika seleksi skyline
+- Mudah diimplementasikan dan dipahami
 
 ## Map
 output:
