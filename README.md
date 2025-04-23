@@ -132,7 +132,7 @@ Kompleksitas: O(n)
 Alasan: karena kita mengecek ulang semua elemen di skyline untuk menentukan siapa yang kalah.
 - Karena semua langkah di atas dilakukan untuk setiap elemen dalam queue (n data):  
 a. Loop utama dilakukan n kali.  
-b. Di dalamnya terdapat operasi erase(begin()) = O(n). 
+b. Di dalamnya terdapat operasi erase(begin()) = O(n).  
 c. Ditambah dua loop terhadap skyline = maksimal O(n)
 Jadi total kompleksitas waktu keseluruhan:
 > O(n²)
