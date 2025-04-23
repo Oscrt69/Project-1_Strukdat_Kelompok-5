@@ -51,7 +51,7 @@ Dokumentasi :
 
 
 Dapat ditinjau pada dokumentasi tersebut bahwa efisiensi waktu menggunakan struktur data Stack memakan waktu sebesar :
-- Percobaan pertama = 0.002653 detik
+- Percobaan pertama = 0.002653 detik <br>
 ![WhatsApp Image 2025-04-23 at 15 42 42_68043ef1](https://github.com/user-attachments/assets/34b1545c-7675-4f10-87d9-1c04ebbdedb0)
 
 - Percobaan kedua = 0.002005 detik
@@ -63,10 +63,13 @@ Dapat ditinjau pada dokumentasi tersebut bahwa efisiensi waktu menggunakan struk
 ![WhatsApp Image 2025-04-23 at 15 42 48_d71c7cd6](https://github.com/user-attachments/assets/10ebde31-da52-48b1-8007-9b628e705425)
 
 
- Implementasi skyline querry dengan struktur data Stack memiliki kompleksitas O(n^2),  Operasi stack (push/pop) sendiri adalah O(1), tapi karena dilakukan dalam loop bersarang, totalnya O(n^2). Kesimpulannya stack cocok untuk analisis data file kecil, namun apabila ukuran data besar maka kurang direkomendasikan dikarenakan kompleksitas waktu dalam big O notation yang cukup besar
+Implementasi skyline querry dengan struktur data Stack memiliki kompleksitas O(n^2),  Operasi stack (push/pop) sendiri adalah O(1), tapi karena dilakukan dalam loop bersarang, totalnya O(n^2). Kesimpulannya stack cocok untuk analisis data file kecil, namun apabila ukuran data besar maka kurang direkomendasikan dikarenakan kompleksitas waktu dalam big O notation yang cukup besar
 
 ## Hash Table
-Implementasi hash table di C++ menggunakan `unprdered_map`. `unordered_map` adalah bagian dari Standard Template Library (STL) C++, dan dapat disimpan tanpa urutan tertentu.
+Hash table adalah struktur data yang menyimpan data dalam pasangan `key-value`, di mana key digunakan untuk menemukan data secara cepat menggunakan fungsi hash. Hash table memiliki kompleksitas rata-rata `O(1)` karena key langsung di-hash ke lokasi penyimpanan yang unik, dan kemungkinan buruknya adalah `O(n)`. Salah satu faktor penyebabnya yaitu banyak collision, yaitu ketika banyak key masuk ke hash yang sama. Ini bisa terjadi kalau fungsi hash buruk atau terlalu banyak data.
+
+<br>Hash Table mrmiliki implementasi `unordered_map`. `unordered_map` adalah bagian dari Standard Template Library C++, dan dapat disimpan tanpa urutan tertentu. <br>
+
 <img src="https://github.com/user-attachments/assets/1e4719dd-8f61-4eaa-89fa-227e195dea72" width = "600"> <br>
 Berdasarkan gambar di atas, telah dilakukan sebanyak tiga kali uji coba pemrosesan data pada file .csv menggunakan metode Hash Table. Hasil waktu pemrosesan dari masing-masing uji coba adalah sebagai berikut: <br>
 Uji coba pertama: 0.00088687 detik <br>
@@ -91,9 +94,6 @@ Berdasarkan 3 kali hasil uji performa pada struktur dat array terhadap 1000 bari
 
 Kesimpulan:
 Array sudah cocok digunakan untuk penggunaan skyline pada dataset yang kecil hingga menengah. Namun untuk dataset besar array dirasa kurang efisien secara waktu eksekusinya.
-
-
-
 
 ## Queue
 ### Konsep Dasar Queue
