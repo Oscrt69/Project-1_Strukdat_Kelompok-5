@@ -1,89 +1,108 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
 #include <vector>
 #include <stack>
+#include <string>
 #include <chrono>
 using namespace std;
 
 struct Produk {
     int harga;
     int ulasan;
+
+    Produk(int h, int u) : harga(h), ulasan(u) {}
 };
+
+// Cek apakah a mendominasi b
+bool mendominasi(const Produk& a, const Produk& b) {
+    return (a.harga <= b.harga && a.ulasan <= b.ulasan) &&
+           (a.harga < b.harga || a.ulasan < b.ulasan);
+}
 
 vector<Produk> bacaCSV(const string& filename) {
     vector<Produk> data;
     ifstream file(filename);
-    string line;
-    getline(file, line); // Lewati header
+    string baris;
+    getline(file, baris); // skip header dalam file csv product baju
 
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string hargaStr, ulasanStr;
-        getline(ss, hargaStr, ',');
-        getline(ss, ulasanStr, ',');
-        Produk p;
-        p.harga = stoi(hargaStr);
-        p.ulasan = stoi(ulasanStr);
-        data.push_back(p);
+    while (getline(file, baris)) {
+        stringstream ss(baris);
+        string token;
+        int kolom = 0;
+        int harga = 0, ulasan = 0;
+
+        while (getline(ss, token, ',')) {
+            if (kolom == 2) harga = stoi(token);     // kolom attr_1
+            if (kolom == 3) ulasan = stoi(token);    // kolom attr_2
+            kolom++;
+        }
+
+        data.emplace_back(harga, ulasan);
     }
+
     return data;
 }
 
 vector<Produk> skylineQueryDenganStack(const vector<Produk>& data) {
-    vector<Produk> hasil;
     stack<Produk> skyline;
 
-    for (const auto& p : data) {
+    for (const auto& kandidat : data) {
+        stack<Produk> sementara;
         bool didominasi = false;
-        stack<Produk> temp;
+
         while (!skyline.empty()) {
             Produk top = skyline.top();
             skyline.pop();
-            // Jika top mendominasi p, maka p tidak layak masuk skyline
-            if (top.harga <= p.harga && top.ulasan >= p.ulasan &&
-                (top.harga < p.harga || top.ulasan > p.ulasan)) {
+
+            if (mendominasi(top, kandidat)) {
                 didominasi = true;
+            } else if (!mendominasi(kandidat, top)) {
+                sementara.push(top);
             }
-            // Jika p tidak mendominasi top, simpan kembali
-            if (!(p.harga <= top.harga && p.ulasan >= top.ulasan &&
-                  (p.harga < top.harga || p.ulasan > top.ulasan))) {
-                temp.push(top);
-            }
-        }
-        // Restore isi stack yang valid
-        while (!temp.empty()) {
-            skyline.push(temp.top());
-            temp.pop();
         }
 
         if (!didominasi) {
-            skyline.push(p);
+            sementara.push(kandidat);
+        }
+
+        // Balikin isi stack sementara ke skyline
+        while (!sementara.empty()) {
+            skyline.push(sementara.top());
+            sementara.pop();
         }
     }
+
+    // Konversi hasil dari stack ke vector untuk dicetak
+    vector<Produk> hasil;
     while (!skyline.empty()) {
         hasil.push_back(skyline.top());
         skyline.pop();
     }
 
     return hasil;
+
+
+
 }
 
 int main() {
     string filename = "ind_1000_2_product.csv";
     vector<Produk> data = bacaCSV(filename);
-    
+
+    // Ukur waktu eksekusi skylineQuery
     auto start = chrono::high_resolution_clock::now();
-    vector<Produk> hasil = skylineQueryDenganStack(data);
+    vector<Produk> hasil = skylineQueryDenganStack(data);\
     auto end = chrono::high_resolution_clock::now();
+
     chrono::duration<double> duration = end - start;
-    
     cout << "Waktu eksekusi skylineQueryDenganStack: " << duration.count() << " detik\n\n";
+
+    // Cetak hasil setelah pengukuran waktu
     cout << "Hasil Skyline (pakai stack):\n";
-    
     for (const auto& p : hasil) {
         cout << "- Harga: " << p.harga << ", Ulasan: " << p.ulasan << '\n';
     }
-    return 0;
+
+    return 0;
 }
