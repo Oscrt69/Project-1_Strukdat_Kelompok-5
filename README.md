@@ -66,12 +66,14 @@ Dapat ditinjau pada dokumentasi tersebut bahwa efisiensi waktu menggunakan struk
  Implementasi skyline querry dengan struktur data Stack memiliki kompleksitas O(n^2),  Operasi stack (push/pop) sendiri adalah O(1), tapi karena dilakukan dalam loop bersarang, totalnya O(n^2). Kesimpulannya stack cocok untuk analisis data file kecil, namun apabila ukuran data besar maka kurang direkomendasikan dikarenakan kompleksitas waktu dalam big O notation yang cukup besar
 
 ## Hash Table
+Implementasi hash table di C++ menggunakan `unprdered_map`. `unordered_map` adalah bagian dari Standard Template Library (STL) C++, dan dapat disimpan tanpa urutan tertentu.
 <img src="https://github.com/user-attachments/assets/1e4719dd-8f61-4eaa-89fa-227e195dea72" width = "600"> <br>
 Berdasarkan gambar di atas, telah dilakukan sebanyak tiga kali uji coba pemrosesan data pada file .csv menggunakan metode Hash Table. Hasil waktu pemrosesan dari masing-masing uji coba adalah sebagai berikut: <br>
 Uji coba pertama: 0.00088687 detik <br>
 Uji coba kedua: 0.0015121 detik <br>
 Uji coba ketiga: 0.00112224 detik <br>
 Jika dirata-ratakan, waktu pemrosesan data tersebut adalah 0.00117374 detik.
+
 
 ## Array
 Pada Array Linear search dan traversal mudah dilakukan, namun butuh waktu lebih lama dalam pengecekan dominasi karena tidak ada efisiensi dalam pencarian.
