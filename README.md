@@ -67,10 +67,19 @@ Jika dirata-ratakan, waktu pemrosesan data tersebut adalah 0.00117374 detik.
 ## Array
 Pada Array Linear search dan traversal mudah dilakukan, namun butuh waktu lebih lama dalam pengecekan dominasi karena tidak ada efisiensi dalam pencarian.
 ![WhatsApp Image 2025-04-23 at 15 43 38_2dbc422c](https://github.com/user-attachments/assets/07e16ddf-72fb-48e9-b718-014410865327)
+Kode menggunakan array untuk menyimpan `n` item data yang berupa O(n). Kemudian Array `skyline[]` untuk menyimpan hasil (maksimal berisi `n` yang sama). Ini berarti 2 loop berada di `for i in n`, lalu `for j in n` yang merupakan kompleksitas O(n).
 
 ![WhatsApp Image 2025-04-23 at 15 43 22_7306ed22](https://github.com/user-attachments/assets/5ccb25b7-78ec-4613-a25c-3e97f71f8fc9)
 
-Kode ini nanatinya akan membaca dataset.csv yang berada dalam folder yang sama. Menyimpan setiap item ke dalam array struct Baju. Skyline Query akan membandingkan setiap pasangan baju berdasarkan 2 kriteria yaitu harga lebih murah dan ulasana lebih tinggi. Array akan cocok pada ukuran dataset yang lebih kecil karena semua data dibandingkan satu persatau melalui nested loop. Kompleksitasnya kurang efisien untuk data yang lebih besar.
+Kode ini nanatinya akan membaca `dataset.csv` yang berada dalam folder yang sama. Menyimpan setiap item ke dalam array struct Baju. Skyline Query akan membandingkan setiap pasangan baju berdasarkan 2 kriteria yaitu harga lebih murah dan ulasana lebih tinggi. Array akan cocok pada ukuran dataset yang lebih kecil karena semua data dibandingkan satu persatau melalui `nested loop`. Kompleksitasnya kurang efisien untuk data yang lebih besar.
+
+Berdasarkan 3 kali hasil uji performa pada struktur dat array terhadap 1000 baris data dataset. Didapatkan waktu eksekusi yang sangat cepat dan bervariasi mulai dari sekitar 0.00089 detik hingga 0.00383 detik. Perbedaan kecil ini kemungkinan besar dipengaruhi oleh beban sistem saat program dijalankan. Array masih mampu menyelesaikan proses secara efisien karena
+- Operasi perbandingan lebih sederhana
+- Tidak ada alokasi memori dinamis atau kompleks
+- Overhead sistem termasuk minimal dalam dataset ini
+Kesimpulan:
+Array sudah cocok digunakan untuk penggunaan skyline pada dataset yang kecil hingga menengah. Namun untuk dataset besar array dirasa kurang efisien secara waktu eksekusinya.
+
 
 
 
