@@ -106,7 +106,7 @@ Di sini vector akan menggeser seluruh elemen setelah indeks ke-0 satu posisi ke 
 Kompleksitas: O(n)
 Alasan: karena tiap penghapusan memicu pergeseran semua elemen setelahnya.
 - Setiap kandidat dicek satu per satu dengan elemen di skyline, apakah ada produk lain yang lebih baik dari kandidat:
-```
+```cpp
 for (auto& s : skyline) {
     if (Domination(s, kandidat)) {
         ...
@@ -118,7 +118,7 @@ Alasan: karena kita melakukan loop sebanyak (n) jumlah elemen dalam skyline
 - Jika kandidat tidak dikalahkan, maka kita membangun ulang skyline:
 Hanya mempertahankan produk yang tidak dikalahkan oleh kandidat.
 Kemudian menambahkan kandidat.
-```
+```cpp
 vector<Baju> baru;
 for (auto& s : skyline) {
     if (!domination(kandidat, s)) {
