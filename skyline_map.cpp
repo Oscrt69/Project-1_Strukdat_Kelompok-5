@@ -14,15 +14,31 @@ struct Product {
     int review;
 };
 
-vector<Product> readDataset() {
+vector<Product> readDataset(const string& filename) {
     vector<Product> products;
-    // Data hardcoded sebagai contoh
-    products.push_back({1, 157, 73});
-    products.push_back({2, 209, 129});
-    products.push_back({3, 104, 73});
-    // Tambahkan data lainnya...
+    ifstream file(filename);
+    string line;
+
+    // Lewati header
+    getline(file, line);
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string token;
+        Product p;
+
+        getline(ss, token, ',');
+        p.id = stoi(token);
+        getline(ss, token, ','); // Lewati label
+        getline(ss, token, ',');
+        p.price = stoi(token);
+        getline(ss, token, ',');
+        p.review = stoi(token);
+
+        products.push_back(p);
+    }
+
     return products;
-}
 
 vector<Product> skylineMap(const vector<Product>& products) {
     map<int, int> priceToReview;
